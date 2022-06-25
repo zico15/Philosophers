@@ -6,7 +6,7 @@
 /*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:50:11 by edos-san          #+#    #+#             */
-/*   Updated: 2022/05/21 14:47:32 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/06/16 17:28:02 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	exit_program(void)
 	int	i;
 
 	i = -1;
-	while (++i < table()->size)
+	while (0 && ++i < table()->size)
 		pthread_mutex_destroy(&table()->philos[i]->fork.fork);
 	exit(0);
 }
@@ -34,14 +34,14 @@ int	main(int argc, char **argv)
 	int				size;
 	int				i;
 
-	size = 2;
+	size = 4;
 	i = -1;
 	if (argc <= 1 && argv)
 	{
 		printf("\n");
 	}
 	init_mandatory();
-	init_table(size, 400, 200, 200);
+	init_table(size, 190, 200, 200);
 	printf("init_table\n");
 	while (++i < size)
 		table()->sit(i);

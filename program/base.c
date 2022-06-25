@@ -6,7 +6,7 @@
 /*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 16:26:54 by edos-san          #+#    #+#             */
-/*   Updated: 2022/05/21 15:02:18 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/06/16 17:26:00 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,39 @@ t_useconds	get_time(void)
 	struct timeval	te;
 
 	gettimeofday(&te, NULL);
-	return ((te.tv_sec * 1000) + (te.tv_usec / 1000));
+	return (te.tv_sec * MILLISECONDS + te.tv_usec / MILLISECONDS);
 }
 
-t_useconds	usleep_ob(t_useconds delay, t_philo *p)
-{
-	t_useconds	end;
+/*
+struct timeval	time;
 
-	end = get_time() + (delay);
-	(void) p;
-	while (delay > 0 && get_time() < end)
-		;
-	return (get_time());
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000)
+*/
+void	ft_usleep(t_useconds time, t_philo	*p)
+{
+	t_useconds	t;
+
+	t = get_time();
+	if (t > p->time_eat)
+		p->action(p, DIED, get_time_now(table()->init_time));
+	if (time <= 0)
+		return ;
+	while (get_time() - t < time && table()->check(p->status))
+	{
+		if (get_time() > p->time_eat)
+		{
+			p->action(p, DIED, get_time_now(table()->init_time));
+			p->islive = false;
+			return ;
+		}
+		usleep(1);
+	}
+}
+
+t_useconds	get_time_now(t_useconds start)
+{
+	return (get_time() - start);
 }
 
 int	is_loop(void)

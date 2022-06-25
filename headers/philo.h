@@ -6,7 +6,7 @@
 /*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:53:54 by edos-san          #+#    #+#             */
-/*   Updated: 2022/05/20 19:43:56 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/06/16 17:05:42 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@
 int						free_ob(void *v);
 void					*malloc_ob(int size);
 t_useconds				get_time(void);
+t_useconds				get_time_now(t_useconds start);
 int						is_loop(void);
 t_useconds				usleep_ob(t_useconds delay, t_philo *p);
+void					ft_usleep(t_useconds time, t_philo	*p);
 
 //						TABLE
 t_table					*table(void);
@@ -39,8 +41,7 @@ void					*ft_update(void	*philo);
 void					exit_program(void);
 
 //						PROGRAM
-t_useconds				action_controller(t_philo	*p, t_useconds time_start);
-t_useconds				action_controller2(t_philo	*p);
+t_useconds				action_controller(t_philo	*p);
 int						check_live(t_philo *p, unsigned long long now);
 
 //						MANDATORY

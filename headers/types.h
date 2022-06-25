@@ -6,7 +6,7 @@
 /*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:06:16 by edos-san          #+#    #+#             */
-/*   Updated: 2022/05/21 14:19:40 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/06/16 17:04:19 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ struct s_philo
 	int					chair;
 	t_int				islive;
 	t_useconds			died;
-	t_useconds			time;
+	t_useconds			time_eat;
 	t_useconds			time_init;
 	t_useconds			time_end;
 	t_useconds			times[6];
@@ -79,7 +79,7 @@ struct s_philo
 	void				*(*update)(void	*p);
 	int					(*free_forck)(t_philo *p);
 	int					(*get_forck)(t_philo *p);
-	t_useconds			(*action)(t_philo *p, t_status status, t_useconds time);
+	void				(*action)(t_philo *p, t_status status, t_useconds time);
 };
 
 struct s_table
