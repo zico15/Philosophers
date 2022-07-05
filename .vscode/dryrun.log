@@ -1,0 +1,9 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/ezequeil/Documents/GitHub/Philosophers2'
+ 
+gcc -Iheaders/ -c src/table/table_util.c -o src/table/table_util.o
+ 
+gcc -Iheaders/ -c src/table/table.c -o src/table/table.o
+gcc ft_main.o src/mandatory/ft_mandatory_util.o src/mandatory/ft_mandatory.o src/util/memory.o src/bonus/ft_bonus.o src/program/philo.o src/program/program.o src/program/base.o src/table/table_util.o src/table/table.o -o philo
+make: Leaving directory '/home/ezequeil/Documents/GitHub/Philosophers2'
+ 

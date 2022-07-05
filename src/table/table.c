@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   table.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:35:32 by edos-san          #+#    #+#             */
-/*   Updated: 2022/05/14 23:31:23 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:24:26 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../headers/philo.h"
+#include <philo.h>
 
 t_table	*table(void)
 {
@@ -28,11 +28,11 @@ static void	destroy(void)
 
 static void	*ft_update_table(void	*t)
 {
-	(void) t;
+	/*(void) t;
 	while (table()->islive)
-		;
+		;*/
 	exit_program();
-	return (0);
+	return (t);
 }
 
 static void	init_table_data(int die, int eat, int sleep)
@@ -62,13 +62,13 @@ void	init_table(int philos, int die, int eat, int sleep)
 	table()->size = philos;
 	table()->philos = malloc_ob(sizeof(t_philo *) * philos);
 	table()->destroy = destroy;
-	table()->islive = 1;
 	table()->init_time = get_time();
 	table()->update = ft_update_table;
-	table()->data.is_run = true;
-	pthread_mutex_init(&table()->data.check, 0);
+	table()->run_check.is_run = 1;
+	pthread_mutex_init(&table()->run_check.check, 0);
 	init_table_data(die, eat, sleep);
 	philos = -1;
 	while (++philos < table()->size)
 		table()->philos[philos] = new_philo(philos);
+	create_link(table()->size);
 }

@@ -3,72 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mandatory.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:12:56 by edos-san          #+#    #+#             */
-/*   Updated: 2022/06/21 17:37:31 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:17:02 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../headers/philo.h"
+#include <philo.h>
 
-static int	get_proxi(t_philo	*p)
+static id_t	check_mandatory(t_philo *p)
 {
-	int	i;
+	id_t		is_run;
 
-	i = p->chair;
-	if (i >= table()->size)
-		i = 0;
-	if (table()->size == 1)
-		i = __INT_MAX__;
-	return (i);
+	is_run = 0;
+	if (!pthread_mutex_lock(&table()->run_check.check))
+	{
+		is_run = table()->run_check.is_run;
+		if (is_run && get_time() >= p->time_life)
+		{
+			table()->run_check.is_run = 0;
+			is_run = 0;
+			p->action(p, DIED);
+		}
+		pthread_mutex_unlock(&table()->run_check.check);
+	}
+	return (is_run);
 }
 
 static int	ft_get_forck(t_philo *p)
 {
-	int	i;
 	int	is_forck;
 
-	i = get_proxi(p);
 	is_forck = 0;
-	if (i < table()->size && \
-	!pthread_mutex_lock(&table()->philos[i]->fork.fork))
+	if (!pthread_mutex_lock(&p->fork.fork))
 	{
-		if (table()->philos[i]->fork.is_select == false)
+		if (p->fork.is_free)
 		{
-			if (!pthread_mutex_lock(&p->fork.fork))
+			if (!pthread_mutex_lock(&(p->left)->fork.fork))
 			{
-				if (p->fork.is_select == false)
+				if ((p->left)->fork.is_free)
 				{
-					p->fork.is_select = true;
-					table()->philos[i]->fork.is_select = true;
-					is_forck = true;
+					p->fork.is_free = 0;
+					(p->left)->fork.is_free = 0;
+					is_forck = 1;
 				}
-				pthread_mutex_unlock(&p->fork.fork);
+				pthread_mutex_unlock(&(p->left)->fork.fork);
 			}
 		}
-		pthread_mutex_unlock(&table()->philos[i]->fork.fork);
+		pthread_mutex_unlock(&p->fork.fork);
 	}
 	return (is_forck);
 }
 
 static int	ft_free_forck(t_philo	*p)
 {
-	int	i;
 
-	i = get_proxi(p);
-	if (i < table()->size && \
-	!pthread_mutex_lock(&table()->philos[i]->fork.fork))
+	if (!pthread_mutex_lock(&p->fork.fork))
 	{
-		table()->philos[i]->fork.is_select = false;
-		if (!pthread_mutex_lock(&p->fork.fork))
+		if (!pthread_mutex_lock(&(p->left)->fork.fork))
 		{
-			p->fork.is_select = false;
-			pthread_mutex_unlock(&p->fork.fork);
+			p->fork.is_free = 1;
+			(p->left)->fork.is_free = 1;
+			pthread_mutex_unlock(&(p->left)->fork.fork);
 		}
-		pthread_mutex_unlock(&table()->philos[i]->fork.fork);
+		pthread_mutex_unlock(&p->fork.fork);
 	}
-	return (true);
+	return (1);
 }
 
 static void	ft_sit(int chair)

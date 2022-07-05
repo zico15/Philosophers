@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:53:54 by edos-san          #+#    #+#             */
-/*   Updated: 2022/06/16 17:05:42 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:33:48 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include "types.h"
+# include <types.h>
 # include <sys/time.h>
 # include <unistd.h>
 
-//						BASE
+//						UTIL
 int						free_ob(void *v);
-void					*malloc_ob(int size);
+void					*malloc_ob(size_t size);
 t_useconds				get_time(void);
-t_useconds				get_time_now(t_useconds start);
-int						is_loop(void);
-t_useconds				usleep_ob(t_useconds delay, t_philo *p);
 void					ft_usleep(t_useconds time, t_philo	*p);
+int						ft_atoi(const char *v);
+int						ft_is_number(const char *str);
 
 //						TABLE
 t_table					*table(void);
 void					init_table(int philos, int die, int eat, int sleep);
+void					create_link(int size);
 
 //						PHILO
 t_philo					*new_philo(int chair);
@@ -41,10 +41,9 @@ void					*ft_update(void	*philo);
 void					exit_program(void);
 
 //						PROGRAM
-t_useconds				action_controller(t_philo	*p);
 int						check_live(t_philo *p, unsigned long long now);
 
 //						MANDATORY
 void					init_mandatory(void);
-id_t					check_mandatory(t_status status);
+
 #endif

@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"locale": "c",
-		"__locale": "c"
+		"__locale": "c",
+		"type_traits": "c",
+		"philo.h": "c"
 	}
 }

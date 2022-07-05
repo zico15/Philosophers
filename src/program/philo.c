@@ -3,45 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:31:53 by edos-san          #+#    #+#             */
-/*   Updated: 2022/06/16 17:27:20 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:45:06 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../headers/philo.h"
+#include <philo.h>
+
+static void	action_controller(t_philo	*p)
+{
+	if (p->status == NONE)
+		p->action(p, THINKING);
+	else if (p->status == EATING)
+	{
+		p->free_forck(p);
+		p->action(p, SLEEPING);
+	}
+	else if (p->status == SLEEPING)
+		p->action(p, THINKING);
+	if (p->status == THINKING && p->get_forck(p))
+	{
+		p->action(p, FORK);
+		p->action(p, EATING);
+		p->time_life = get_time() + table()->times[DIED];
+	}
+}
 
 void	*ft_update(void	*philo)
 {
 	t_philo			*p;
-	t_useconds		action;
-
+	pid_t
 	p = philo;
-	p->time_init = 0;
-	action = 0;
-	p->time_eat = get_time() + table()->times[DIED];
-	while (p->islive)
-	{
-		p->time_init = get_time_now(table()->init_time);
-		action = action_controller(p);
-		ft_usleep(action, p);
-	}
-	exit_program();
-	return (0);
+	p->time_life = table()->init_time + table()->times[DIED];
+	while (table()->check(p))
+		action_controller(p);
+	return (p);
 }
 
-static void	ft_action(t_philo	*p, t_status status, t_useconds time)
+static void	ft_action(t_philo	*p, t_status status)
 {
-
 	if (p->status == status)
 		return ;
-	p->islive = table()->check(status);
-	if (!p->islive)
-		return ;
-	p->is_action = false;
+	p->time = get_time() - table()->init_time;
 	printf("%stime: %lu philo: %i action: %s\n", table()->color \
-	[status], time, p->chair, table()->msg[status]);
+	[status], p->time, p->chair, table()->msg[status]);
+	if (status != DIED)
+		ft_usleep(table()->times[status], p);
 	p->status = status;
 }
 
@@ -50,19 +59,12 @@ t_philo	*new_philo(int chair)
 	t_philo	*p;
 
 	p = malloc_ob(sizeof(t_philo));
-	if (!p)
-		return (0);
 	p->update = ft_update;
-	p->thid = 0;
-	p->fork.is_select = false;
+	p->fork.is_free = 1;
 	p->chair = chair + 1;
 	p->action = ft_action;
-	p->time_eat = 0;
 	p->status = NONE;
-	p->thid = NULL;
-	p->status = NONE;
-	p->islive = 1;
-	pthread_mutex_init(&p->fork.fork, 0);
-	p->died = table()->times[DIED];
+	p->is_alive = 1;
+	pthread_mutex_init(&p->fork.fork, NULL);
 	return (p);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:06:16 by edos-san          #+#    #+#             */
-/*   Updated: 2022/06/16 17:04:19 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:07:48 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ typedef struct s_table		t_table;
 typedef struct s_forck		t_forck;
 typedef unsigned long		t_useconds;
 
-typedef enum e_boolean
-{
-	false,
-	true
-}	t_boolean;
-
 typedef enum e_status
 {
 	FORK,
@@ -51,7 +45,7 @@ typedef enum e_status
 
 struct s_forck
 {
-	id_t				is_select;
+	id_t				is_free;
 	pthread_mutex_t		fork;
 };
 
@@ -65,21 +59,16 @@ struct s_philo
 {
 	pthread_t			thid;
 	int					chair;
-	t_int				islive;
-	t_useconds			died;
-	t_useconds			time_eat;
-	t_useconds			time_init;
-	t_useconds			time_end;
-	t_useconds			times[6];
+	int					is_alive;
 	t_status			status;
 	t_forck				fork;
-	t_useconds			action_time;
-	int					correcao;
-	int					is_action;
+	t_philo				*left;
+	t_useconds			time;
+	t_useconds			time_life;
 	void				*(*update)(void	*p);
 	int					(*free_forck)(t_philo *p);
 	int					(*get_forck)(t_philo *p);
-	void				(*action)(t_philo *p, t_status status, t_useconds time);
+	void				(*action)(t_philo *p, t_status status);
 };
 
 struct s_table
@@ -87,19 +76,15 @@ struct s_table
 	pthread_t		thid;
 	t_useconds		init_time;
 	int				size;
-	t_int			islive;
-	int				number_of_times_each_philosopher_must_eat;
 	char			*msg[6];
 	char			*color[6];
 	t_useconds		times[6];
-	int				is_init;
 	t_philo			**philos;
-	t_forck			**forks;
-	t_run			data;
+	t_run			run_check;
 	void			(*sit)(int chair);
 	void			*(*update)(void	*table);
 	void			(*destroy)();
-	id_t			(*check)(t_status status);
+	id_t			(*check)(t_philo	*p);
 };
 
 #endif
