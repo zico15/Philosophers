@@ -6,7 +6,7 @@
 /*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:50:11 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/05 17:38:52 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:26:26 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,16 @@ int	main(int argc, char **argv)
 	init_mandatory();
 	size = ft_atoi(argv[1]);
 	init_table(size, ft_atoi(argv[2]), ft_atoi(argv[3]), ft_atoi(argv[4]));
-	printf("init_table\n");
+	if (argc > 5)
+		table()->run_check.max_eats = ft_atoi(argv[5]);
+	else
+		table()->run_check.max_eats = -1;
+	printf("init_table: size: %i\n", table()->run_check.max_eats);
 	while (++i < size)
 		table()->sit(i);
 	i = -1;
 	while (++i < size)
-		pthread_join((table()->philos[i])->thid, 0);
+		waitpid((table()->philos[i])->thid, 0);
 	exit_program();
 	return (1);
 }

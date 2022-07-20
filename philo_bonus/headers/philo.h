@@ -6,7 +6,7 @@
 /*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:53:54 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/05 17:33:48 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:27:33 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <types.h>
 # include <sys/time.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <semaphore.h>
 
 //						UTIL
 int						free_ob(void *v);
@@ -36,6 +39,7 @@ void					create_link(int size);
 //						PHILO
 t_philo					*new_philo(int chair);
 void					*ft_update(void	*philo);
+void					action(t_philo	*p, t_status status);
 
 //						MAIN
 void					exit_program(void);

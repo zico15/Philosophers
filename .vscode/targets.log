@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul  5 15:40:30 2022
+# Make data base, printed on Wed Jul 20 21:23:05 2022
 
 # Variables
 
@@ -15,19 +17,13 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
-NO_AT_BRIDGE = 1
-# environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-ELECTRON_ENABLE_STACK_DUMPING = 1
-# environment
 GJS_DEBUG_OUTPUT = stderr
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2d08aab9-7f92-41ce-a5f7-fccc95e83dbf.sock
 # environment
 LC_NAME = pt_PT.UTF-8
 # environment
@@ -45,43 +41,41 @@ QT_ACCESSIBILITY = 1
 # environment
 SNAP_INSTANCE_NAME = code
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/99/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/102/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/ezequeil/Documents/GitHub/Philosophers2
+PWD = /home/ezequeil/Documents/GitHub/Philosophers
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
-# environment
-VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/ezequeil/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+VSCODE_CODE_CACHE_PATH = /home/ezequeil/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.XXRUO1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.NIMKP1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # makefile
 MAKEFLAGS = pqrR
+# environment
+PKG_CONFIG_PATH = /home/ezequeil/mono-1.1.9.1/lib/pkgconfig:/home/ezequeil/mono-1.1.9.1/lib/pkgconfig:/home/ezequeil/mono-1.1.9.1/lib/pkgconfig:
 # makefile
-CURDIR := /home/ezequeil/Documents/GitHub/Philosophers2
+CURDIR := /home/ezequeil/Documents/GitHub/Philosophers
 # environment
-VSCODE_PIPE_LOGGING = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# makefile (from 'Makefile', line 13)
-SRCS = ft_main.c $(shell find src/ -name '*.c')
+LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -98,42 +92,36 @@ XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 +D = $(patsubst %/,%,$(dir $+))
 # environment
 XDG_SESSION_DESKTOP = ubuntu
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST := Makefile
+# makefile
+MAKEFILE_LIST := 
 # environment
 SNAP_REEXEC = 
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-VSCODE_PID = 6393
+VSCODE_PID = 17557
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/gitkraken_gitkraken.desktop
-# makefile (from 'Makefile', line 22)
-INCLUDES = -Iheaders/
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/ezequeil-Aspire-A515-54G:@/tmp/.ICE-unix/1249,unix/ezequeil-Aspire-A515-54G:/tmp/.ICE-unix/1249
+SESSION_MANAGER = local/ezequeil-Aspire-A515-54G:@/tmp/.ICE-unix/1961,unix/ezequeil-Aspire-A515-54G:/tmp/.ICE-unix/1961
 # automatic
 *F = $(notdir $*)
+# environment
+MANPATH = /home/ezequeil/mono-1.1.9.1/share/man:/home/ezequeil/mono-1.1.9.1/share/man:/home/ezequeil/mono-1.1.9.1/share/man:
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
-# makefile (from 'Makefile', line 19)
-LIB = ar rcs
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
-# makefile (from 'Makefile', line 15)
-OBJS = $(SRCS:.c=.o)
 # environment
 GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # makefile
@@ -148,12 +136,14 @@ GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 SHLVL = 0
 # environment
 MAKELEVEL := 0
+# environment
+IM_CONFIG_CHECK_ENV = 1
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = ivixzH3CgFj4adzQlGKPjzNvzi7EL80KtNKIS0-pwJ_96oX7VCoQ
 # environment
-PATH = /home/ezequeil/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /home/ezequeil/mono-1.1.9.1/bin:/home/ezequeil/.local/bin:/home/ezequeil/mono-1.1.9.1/bin:/home/ezequeil/mono-1.1.9.1/bin:/home/ezequeil/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/ezequeil/.dotnet/tools:/home/ezequeil/.dotnet/tools
 # default
 MAKEFILES := 
 # environment
@@ -165,47 +155,45 @@ SNAP_USER_COMMON = /home/ezequeil/snap/code/common
 # environment
 LC_TIME = pt_PT.UTF-8
 # environment
-SNAP = /snap/code/99
+SNAP = /snap/code/102
 # environment
-INVOCATION_ID = 5724096a79094fc2b073332c1496f42a
+INVOCATION_ID = 80a6d848de7545f6aa74b6761236c93d
 # environment
-SNAP_REVISION = 99
+SNAP_REVISION = 102
 # environment
 SNAP_REAL_HOME = /home/ezequeil
-# environment
-VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = ezequeil
 # environment
 GNOME_SETUP_DISPLAY = :1
 # environment
 LC_TELEPHONE = pt_PT.UTF-8
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
 ?F = $(notdir $?)
-# makefile (from 'Makefile', line 21)
-NAME = philo
 # environment
 XDG_CURRENT_DESKTOP = Unity
+# environment
+LS_COLORS = 
 # automatic
 +F = $(notdir $+)
 # environment
 DESKTOP_SESSION = ubuntu
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = Unity
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
 LOGNAME = ezequeil
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/gitkraken_gitkraken.desktop
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
 SNAP_ARCH = amd64
 # makefile
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 1270
-# makefile (from 'Makefile', line 20)
-RM = /bin/rm -f
+SYSTEMD_EXEC_PID = 1987
 # environment
 DISPLAY = :0
 # environment
@@ -214,32 +202,30 @@ USER = ezequeil
 GTK_MODULES = gail:atk-bridge
 # default
 MAKE_VERSION := 4.3
-# 'override' directive
-.SHELLSTATUS := 0
 # environment
 DISABLE_WAYLAND = 1
 # environment
-SNAP_DATA = /var/snap/code/99
+SNAP_DATA = /var/snap/code/102
 # environment
 SNAP_CONTEXT = ivixzH3CgFj4adzQlGKPjzNvzi7EL80KtNKIS0-pwJ_96oX7VCoQ
 # environment
-MANAGERPID = 1113
+MANAGERPID = 1777
 # environment
 LC_MEASUREMENT = pt_PT.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 7654
+GIO_LAUNCHED_DESKTOP_FILE_PID = 17510
+# environment
+_ = /snap/code/102/usr/share/code/code
 # environment
 LC_PAPER = pt_PT.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
-# makefile (from 'Makefile', line 18)
-CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=thread
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/ezequeil/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 LC_CTYPE = pt_PT.UTF-8
 # environment
-JOURNAL_STREAM = 8:35863
+JOURNAL_STREAM = 8:35376
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -251,11 +237,11 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-0fb073e2-1.68.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-0fb073e2-1.69.2-main.sock
 # environment
 SNAP_NAME = code
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/99/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/102/usr/share/glib-2.0/schemas
 # environment
 IM_CONFIG_PHASE = 1
 # default
@@ -263,7 +249,7 @@ IM_CONFIG_PHASE = 1
 # automatic
 <F = $(notdir $<)
 # environment
-SNAP_VERSION = 30d9c6cd
+SNAP_VERSION = 3b889b09
 # default
 SUFFIXES := 
 # environment
@@ -274,10 +260,8 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
-# makefile (from 'Makefile', line 16)
-CC = gcc
 # environment
-SNAP_USER_DATA = /home/ezequeil/snap/code/99
+SNAP_USER_DATA = /home/ezequeil/snap/code/102
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -287,7 +271,7 @@ LC_IDENTIFICATION = pt_PT.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=138/1024=13%, Rehash=0, Collisions=7/180=4%
+# Load=129/1024=13%, Rehash=0, Collisions=4/156=3%
 
 # Pattern-specific Variable Values
 
@@ -295,177 +279,22 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# src/mandatory (device 66306, inode 15076013): 4 files, no impossibilities so far.
-# src/program (device 66306, inode 15076021): 5 files, no impossibilities so far.
- 
-# src/bonus (device 66306, inode 15076010): 1 files, no impossibilities so far.
-# src/table (device 66306, inode 15076205): 1 files, no impossibilities so far.
-# . (device 66306, inode 14813003): 9 files, no impossibilities.
-# src/util (device 66306, inode 15076171): 3 files, no impossibilities so far.
+# . (device 66306, inode 14813003): 6 files, no impossibilities.
 
-# 23 files, no impossibilities in 6 directories.
+# 6 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-%.o: %.c
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
+# No implicit rules.
 
-# 1 implicit rules, 0 (0.0%) terminal.
 # Files
-
-src/program/base.o: src/program/base.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/program/base'
-#  Last modified 2022-07-05 15:40:28.074919529
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
-
-# Not a target:
-src/util/memory.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-05 15:21:32.250513975
-#  File has been updated.
-#  Successfully updated.
-
-src/table/table_util.o: src/table/table_util.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/table/table_util'
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := src/table/table_util.o
-# automatic
-# * := src/table/table_util
-# automatic
-# < := src/table/table_util.c
-# automatic
-# + := src/table/table_util.c
-# automatic
-# % := 
-# automatic
-# ^ := src/table/table_util.c
-# automatic
-# ? := src/table/table_util.c
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/15=13%
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
-
-# Not a target:
-src/table/table.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-src/program/program.o: src/program/program.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/program/program'
-#  Last modified 2022-07-05 15:40:28.050919574
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
-
-src/mandatory/ft_mandatory.o: src/mandatory/ft_mandatory.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/mandatory/ft_mandatory'
-#  Last modified 2022-07-05 15:40:27.950919762
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
-
-src/bonus/ft_bonus.o: src/bonus/ft_bonus.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/bonus/ft_bonus'
-#  Last modified 2022-07-05 15:40:27.994919679
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
-
-# Not a target:
-ft_main.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-05 15:30:42.0082632
-#  File has been updated.
-#  Successfully updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-05 15:40:26.330922803
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-src/table/table_util.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-05 15:37:10.839310372
-#  File has been updated.
-#  Successfully updated.
-
-clean:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 33):
-					$(RM) $(OBJS)
-
-# Not a target:
-src/program/program.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-05 15:22:09.586303381
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-src/mandatory/ft_mandatory.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-05 15:24:49.109519892
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-src/mandatory/ft_mandatory_util.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-05 15:23:14.205964779
-#  File has been updated.
-#  Successfully updated.
-
-re: fclean all
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-src/program/base.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-05 15:26:35.805082379
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-src/program/philo.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-05 15:26:11.257177818
-#  File has been updated.
-#  Successfully updated.
-
-src/mandatory/ft_mandatory_util.o: src/mandatory/ft_mandatory_util.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/mandatory/ft_mandatory_util'
-#  Last modified 2022-07-05 15:40:27.91491983
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
+#  Failed to be updated.
 
 # Not a target:
 .DEFAULT:
@@ -473,94 +302,42 @@ src/mandatory/ft_mandatory_util.o: src/mandatory/ft_mandatory_util.c
 #  Modification time never checked.
 #  File has not been updated.
 
-all: philo
+# Not a target:
+all:
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-
-fclean: clean
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 36):
-						$(RM) $(NAME)
-				
-
-src/util/memory.o: src/util/memory.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/util/memory'
-#  Last modified 2022-07-05 15:40:27.974919717
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
-
-src/program/philo.o: src/program/philo.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/program/philo'
-#  Last modified 2022-07-05 15:40:28.018919634
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
-
-r:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 45):
-					make re && clear && ./philo
-
-philo: ft_main.o src/mandatory/ft_mandatory_util.o src/mandatory/ft_mandatory.o src/util/memory.o src/bonus/ft_bonus.o src/program/philo.o src/program/program.o src/program/base.o src/table/table_util.o src/table/table.o
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-#  recipe to execute (from 'Makefile', line 27):
-		@$(CC) $(^) -o $(@)
-		
-
-m: fclean clean fclean
-#  Implicit rule search has not been done.
-#  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-src/bonus/ft_bonus.c:
+makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-05 14:26:15.441557468
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Failed to be updated.
 
-ft_main.o: ft_main.c
+ 
+# Not a target:
+GNUmakefile:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ft_main'
-#  Last modified 2022-07-05 15:40:27.882919889
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
+#  Failed to be updated.
 
 # files hash-table stats:
-# Load=29/1024=3%, Rehash=0, Collisions=0/86=0%
+# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 65 / storage = 915 B / avg = 14 B
-# current buf: size = 8162 B / used = 915 B / count = 65 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 14 / storage = 121 B / avg = 8 B
+# current buf: size = 8162 B / used = 121 B / count = 14 / avg = 8 B
 
-# strcache performance: lookups = 99 / hit rate = 34%
+# strcache performance: lookups = 17 / hit rate = 17%
 # hash-table stats:
-# Load=65/8192=1%, Rehash=0, Collisions=0/99=0%
-# Finished Make data base on Tue Jul  5 15:40:30 2022
+# Load=14/8192=0%, Rehash=0, Collisions=0/17=0%
+# Finished Make data base on Wed Jul 20 21:23:05 2022
 
  

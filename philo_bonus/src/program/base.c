@@ -6,7 +6,7 @@
 /*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 16:26:54 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/05 17:06:55 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/07/20 20:59:39 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,4 @@ void	ft_usleep(t_useconds time, t_philo	*p)
 t_useconds	get_time_now(t_useconds start)
 {
 	return (get_time() - start);
-}
-
-int	is_loop(void)
-{
-	/*int	i;
-
-	i = -1;
-	while (++i < table()->size)
-		if (!table()->philos[i]->islive)
-			return (false);
-	return (table()->philos != false);*/
-	return (0);
 }

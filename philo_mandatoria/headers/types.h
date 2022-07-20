@@ -6,7 +6,7 @@
 /*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:06:16 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/05 17:07:48 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:06:18 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ typedef struct s_run
 {
 	id_t				is_run;
 	pthread_mutex_t		check;
+	int					list[999999];
+	int					max_eats;
+	int					count;
 }	t_run;
 
 struct s_philo
@@ -65,10 +68,10 @@ struct s_philo
 	t_philo				*left;
 	t_useconds			time;
 	t_useconds			time_life;
+	int					eats;
 	void				*(*update)(void	*p);
 	int					(*free_forck)(t_philo *p);
 	int					(*get_forck)(t_philo *p);
-	void				(*action)(t_philo *p, t_status status);
 };
 
 struct s_table

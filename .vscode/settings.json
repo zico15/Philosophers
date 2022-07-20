@@ -3,6 +3,7 @@
 		"locale": "c",
 		"__locale": "c",
 		"type_traits": "c",
-		"philo.h": "c"
+		"philo.h": "c",
+		"struct_timespec.h": "c"
 	}
 }

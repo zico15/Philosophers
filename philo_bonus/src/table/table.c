@@ -6,7 +6,7 @@
 /*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:35:32 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/05 17:24:26 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/07/06 14:23:19 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,14 @@ void	init_table(int philos, int die, int eat, int sleep)
 	table()->init_time = get_time();
 	table()->update = ft_update_table;
 	table()->run_check.is_run = 1;
+	table()->run_check.max_eats = 3;
 	pthread_mutex_init(&table()->run_check.check, 0);
 	init_table_data(die, eat, sleep);
 	philos = -1;
 	while (++philos < table()->size)
+	{
+		table()->run_check.list[philos] = 0;
 		table()->philos[philos] = new_philo(philos);
+	}
 	create_link(table()->size);
 }

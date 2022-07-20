@@ -6,7 +6,7 @@
 /*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:12:56 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/05 17:17:02 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:08:42 by ezequeil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,29 @@
 
 static id_t	check_mandatory(t_philo *p)
 {
-	id_t		is_run;
+	int			i;
 
-	is_run = 0;
 	if (!pthread_mutex_lock(&table()->run_check.check))
 	{
-		is_run = table()->run_check.is_run;
-		if (is_run && get_time() >= p->time_life)
+		table()->run_check.list[p->chair - 1] = p->eats;
+		i = -1;
+		table()->run_check.count = table()->run_check.max_eats;
+		while (table()->run_check.is_run && \
+		table()->run_check.count > 0 && ++i < table()->size)
 		{
+			if (table()->run_check.list[i] < table()->run_check.max_eats)
+				table()->run_check.count = 0;
+		}
+		if (table()->run_check.is_run && table()->run_check.count > 0)
 			table()->run_check.is_run = 0;
-			is_run = 0;
-			p->action(p, DIED);
+		if (table()->run_check.is_run && get_time() >= p->time_life)
+		{
+			action(p, DIED);
+			table()->run_check.is_run = 0;
 		}
 		pthread_mutex_unlock(&table()->run_check.check);
 	}
-	return (is_run);
+	return (table()->run_check.is_run);
 }
 
 static int	ft_get_forck(t_philo *p)
