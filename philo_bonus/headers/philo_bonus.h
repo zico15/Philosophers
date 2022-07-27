@@ -10,18 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#ifndef PHILO_BONUS_H
+# define PHILO_BONUS_H
 
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include <types.h>
+# include <types_bonus.h>
 # include <sys/time.h>
 # include <unistd.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <semaphore.h>
+# include <sys/wait.h>
 
 //						UTIL
 int						free_ob(void *v);
@@ -47,7 +48,7 @@ void					exit_program(void);
 //						PROGRAM
 int						check_live(t_philo *p, unsigned long long now);
 
-//						MANDATORY
-void					init_mandatory(void);
+//						BONUS
+void	                init_bonus(void);
 
 #endif

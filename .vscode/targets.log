@@ -2,13 +2,13 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.3
-# Built for x86_64-pc-linux-gnu
+# Built for x86_64-unknown-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 20 21:23:05 2022
+# Make data base, printed on Wed Jul 27 18:48:53 2022
 
 # Variables
 
@@ -17,21 +17,19 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
-GNOME_SHELL_SESSION_MODE = ubuntu
+NO_AT_BRIDGE = 1
 # environment
-SSH_AGENT_LAUNCHER = gnome-keyring
-# environment
-SNAP_INSTANCE_KEY = 
+PULSE_SERVER = unix:/run/flatpak/pulse/native
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-LC_NAME = pt_PT.UTF-8
+SBX_CHROME_API_RQ = 1
 # environment
-LC_NUMERIC = pt_PT.UTF-8
+VSCODE_CWD = /Users/edos-san
 # environment
-VSCODE_CWD = /home/ezequeil
+LIBVIRT_DEFAULT_URI = qemu:///system
 # environment
-LC_ADDRESS = pt_PT.UTF-8
+GDM_LANG = en
 # default
 MAKE_COMMAND := make
 # environment
@@ -39,89 +37,99 @@ QT_ACCESSIBILITY = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-SNAP_INSTANCE_NAME = code
-# environment
-GDK_PIXBUF_MODULEDIR = /snap/code/102/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
-# environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/ezequeil/Documents/GitHub/Philosophers
+PWD = /sgoinfre/edos-san/Philosophers
+# environment
+ZYPAK_ZYGOTE_STRATEGY_SPAWN = 1
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+GI_TYPELIB_PATH = /app/lib/girepository-1.0
+# environment
+XDG_DATA_DIRS = /app/share:/usr/share:/usr/share/runtime/share:/run/host/user-share:/run/host/share
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/ezequeil/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CODE_CACHE_PATH = /Users/edos-san/.var/app/com.visualstudio.code/config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session10
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.NIMKP1
+XAUTHORITY = /run/flatpak/Xauthority
 # default
 .LOADED := 
 # default
-.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+.INCLUDE_DIRS = /usr/include /usr/include
+# environment
+ALSA_CONFIG_DIR = /usr/share/alsa
 # makefile
 MAKEFLAGS = pqrR
 # environment
-PKG_CONFIG_PATH = /home/ezequeil/mono-1.1.9.1/lib/pkgconfig:/home/ezequeil/mono-1.1.9.1/lib/pkgconfig:/home/ezequeil/mono-1.1.9.1/lib/pkgconfig:
+ZYPAK_SPAWN_LATEST_ON_REEXEC = 0
 # makefile
-CURDIR := /home/ezequeil/Documents/GitHub/Philosophers
+CURDIR := /sgoinfre/edos-san/Philosophers
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
-# environment
-LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
+ZYPAK_LIB = /app/bin/../lib
+# environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+SSH_AUTH_SOCK = /run/flatpak/ssh-auth
 # default
 .SHELLFLAGS := -c
 # environment
-WAYLAND_DISPLAY = wayland-0
-# environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_CONFIG_DIRS = /app/etc/xdg:/etc/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+ALSA_CONFIG_PATH = /usr/share/alsa/alsa-flatpak.conf
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # makefile
 MAKEFILE_LIST := 
 # environment
-SNAP_REEXEC = 
+FLATPAK_SANDBOX_DIR = /Users/edos-san/.var/app/com.visualstudio.code/sandbox
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 17557
+VSCODE_PID = 23
 # environment
-XDG_SESSION_TYPE = wayland
+KRB5CCNAME = FILE:/tmp/krb5cc_10323_zoIxUf
+# environment
+XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+AT_SPI_BUS_ADDRESS = unix:path=/run/flatpak/at-spi-bus
 # environment
-SESSION_MANAGER = local/ezequeil-Aspire-A515-54G:@/tmp/.ICE-unix/1961,unix/ezequeil-Aspire-A515-54G:/tmp/.ICE-unix/1961
+XDG_DATA_HOME = /Users/edos-san/.var/app/com.visualstudio.code/data
+# environment
+SANDBOX_LD_PRELOAD = /app/bin/../lib/libzypak-preload-host.so:/app/bin/../lib/libzypak-preload-host-spawn-strategy.so
+# environment
+SESSION_MANAGER = local/c2r6s1.42lisboa.com:@/tmp/.ICE-unix/155703,unix/c2r6s1.42lisboa.com:/tmp/.ICE-unix/155703
 # automatic
 *F = $(notdir $*)
 # environment
-MANPATH = /home/ezequeil/mono-1.1.9.1/share/man:/home/ezequeil/mono-1.1.9.1/share/man:/home/ezequeil/mono-1.1.9.1/share/man:
-# environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/flatpak/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+__EGL_EXTERNAL_PLATFORM_CONFIG_DIRS = /etc/egl/egl_external_platform.d:/usr/lib/x86_64-linux-gnu/GL/egl/egl_external_platform.d:/usr/share/egl/egl_external_platform.d
 # default
-MAKE_HOST := x86_64-pc-linux-gnu
+MAKE_HOST := x86_64-unknown-linux-gnu
 # environment
 GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # makefile
@@ -131,147 +139,123 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
+LD_LIBRARY_PATH = /app/lib
+# environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SANDBOX_LD_LIBRARY_PATH = /app/lib
 # environment
 SHLVL = 0
 # environment
 MAKELEVEL := 0
-# environment
-IM_CONFIG_CHECK_ENV = 1
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-SNAP_COOKIE = ivixzH3CgFj4adzQlGKPjzNvzi7EL80KtNKIS0-pwJ_96oX7VCoQ
-# environment
-PATH = /home/ezequeil/mono-1.1.9.1/bin:/home/ezequeil/.local/bin:/home/ezequeil/mono-1.1.9.1/bin:/home/ezequeil/mono-1.1.9.1/bin:/home/ezequeil/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/ezequeil/.dotnet/tools:/home/ezequeil/.dotnet/tools
+PATH = /app/bin:/app/bin:/app/bin:/usr/bin:/Users/edos-san/.var/app/com.visualstudio.code/data/node_modules/bin
 # default
 MAKEFILES := 
 # environment
-LC_MONETARY = pt_PT.UTF-8
+LANGUAGE = en
 # automatic
 ^F = $(notdir $^)
 # environment
-SNAP_USER_COMMON = /home/ezequeil/snap/code/common
+DBUS_SYSTEM_BUS_ADDRESS = unix:path=/run/dbus/system_bus_socket
 # environment
-LC_TIME = pt_PT.UTF-8
+XDG_CONFIG_HOME = /Users/edos-san/.var/app/com.visualstudio.code/config
 # environment
-SNAP = /snap/code/102
+INVOCATION_ID = e624fa468e434e43a4e176c9e250be40
 # environment
-INVOCATION_ID = 80a6d848de7545f6aa74b6761236c93d
-# environment
-SNAP_REVISION = 102
-# environment
-SNAP_REAL_HOME = /home/ezequeil
-# environment
-USERNAME = ezequeil
-# environment
-GNOME_SETUP_DISPLAY = :1
-# environment
-LC_TELEPHONE = pt_PT.UTF-8
-# environment
-LESSCLOSE = /usr/bin/lesspipe %s %s
+DOCKER_HOST = unix:///run/user/10323/docker.sock
 # automatic
 ?F = $(notdir $?)
 # environment
 XDG_CURRENT_DESKTOP = Unity
-# environment
-LS_COLORS = 
 # automatic
 +F = $(notdir $+)
 # environment
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
+# environment
 DESKTOP_SESSION = ubuntu
+# environment
+GST_PLUGIN_SYSTEM_PATH = /app/lib/gstreamer-1.0:/usr/lib/extensions/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-LOGNAME = ezequeil
+LOGNAME = edos-san
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+container = flatpak
 # environment
-SNAP_ARCH = amd64
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/flatpak/exports/share/applications/com.visualstudio.code.desktop
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 1987
-# environment
-DISPLAY = :0
-# environment
-USER = ezequeil
+NPM_CONFIG_GLOBALCONFIG = /app/etc/npmrc
 # environment
 GTK_MODULES = gail:atk-bridge
+# environment
+USER = edos-san
+# environment
+DISPLAY = :99.0
 # default
 MAKE_VERSION := 4.3
 # environment
-DISABLE_WAYLAND = 1
+MANAGERPID = 155190
 # environment
-SNAP_DATA = /var/snap/code/102
+GIO_LAUNCHED_DESKTOP_FILE_PID = 157648
 # environment
-SNAP_CONTEXT = ivixzH3CgFj4adzQlGKPjzNvzi7EL80KtNKIS0-pwJ_96oX7VCoQ
+SSH_AGENT_PID = 155665
 # environment
-MANAGERPID = 1777
+_ = /usr/bin/make
 # environment
-LC_MEASUREMENT = pt_PT.UTF-8
+XDG_RUNTIME_DIR = /run/user/10323
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 17510
+GPG_AGENT_INFO = /run/user/10323/gnupg/S.gpg-agent:0:1
 # environment
-_ = /snap/code/102/usr/share/code/code
+PULSE_CLIENTCONFIG = /run/flatpak/pulse/config
 # environment
-LC_PAPER = pt_PT.UTF-8
-# environment
-XDG_RUNTIME_DIR = /run/user/1000
-# environment
-GDK_PIXBUF_MODULE_FILE = /home/ezequeil/snap/code/common/.cache/gdk-pixbuf-loaders.cache
-# environment
-LC_CTYPE = pt_PT.UTF-8
-# environment
-JOURNAL_STREAM = 8:35376
+JOURNAL_STREAM = 9:1112416
 # environment
 XDG_SESSION_CLASS = user
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /home/ezequeil
+HOME = /Users/edos-san
 # environment
 QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-0fb073e2-1.69.2-main.sock
-# environment
-SNAP_NAME = code
-# environment
-GSETTINGS_SCHEMA_DIR = /snap/code/102/usr/share/glib-2.0/schemas
+VSCODE_IPC_HOOK = /run/user/10323/vscode-ce68ec1d-1.69.2-main.sock
 # environment
 IM_CONFIG_PHASE = 1
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
-# environment
-SNAP_VERSION = 3b889b09
 # default
 SUFFIXES := 
+# environment
+XDG_CACHE_HOME = /Users/edos-san/.var/app/com.visualstudio.code/cache
 # environment
 VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
-SNAP_COMMON = /var/snap/code/common
+XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/edos-san
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SNAP_USER_DATA = /home/ezequeil/snap/code/102
+FLATPAK_ID = com.visualstudio.code
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
+ZYPAK_BIN = /app/bin
+# environment
 GDMSESSION = ubuntu
-# environment
-LC_IDENTIFICATION = pt_PT.UTF-8
-# environment
-SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=129/1024=13%, Rehash=0, Collisions=4/156=3%
+# Load=121/1024=12%, Rehash=0, Collisions=14/146=10%
 
 # Pattern-specific Variable Values
 
@@ -279,7 +263,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66306, inode 14813003): 6 files, no impossibilities.
+# . (device 58, inode 30120016): 6 files, no impossibilities.
 
 # 6 files, no impossibilities in 1 directories.
 
@@ -332,12 +316,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 14 / storage = 121 B / avg = 8 B
-# current buf: size = 8162 B / used = 121 B / count = 14 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 13 / storage = 113 B / avg = 8 B
+# current buf: size = 8162 B / used = 113 B / count = 13 / avg = 8 B
 
-# strcache performance: lookups = 17 / hit rate = 17%
+# strcache performance: lookups = 16 / hit rate = 18%
 # hash-table stats:
-# Load=14/8192=0%, Rehash=0, Collisions=0/17=0%
-# Finished Make data base on Wed Jul 20 21:23:05 2022
+# Load=13/8192=0%, Rehash=0, Collisions=0/16=0%
+# Finished Make data base on Wed Jul 27 18:48:53 2022
 
  

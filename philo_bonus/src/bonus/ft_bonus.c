@@ -10,46 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include <philo_bonus.h>
 
 
 static t_int check_bonus(t_philo *p)
 {
-	int			i;
-
-	if (!pthread_mutex_lock(&table()->run_check.check))
+	sem_wait(table()->run_check);
+	if (p->is_alive)
 	{
-		table()->run_check.list[p->chair - 1] = p->eats;
-		i = -1;
-		table()->run_check.count = table()->run_check.max_eats;
-		while (table()->run_check.is_run && \
-		table()->run_check.count > 0 && ++i < table()->size)
-		{
-			if (table()->run_check.list[i] < table()->run_check.max_eats)
-				table()->run_check.count = 0;
-		}
-		if (table()->run_check.is_run && table()->run_check.count > 0)
-			table()->run_check.is_run = 0;
-		if (table()->run_check.is_run && get_time() >= p->time_life)
-		{
-			action(p, DIED);
-			table()->run_check.is_run = 0;
-		}
-		pthread_mutex_unlock(&table()->run_check.check);
+		sem_post(table()->run_check);
+		return (1);
 	}
-	return (table()->run_check.is_run);
+	return (0);
 }
 
 static int	ft_get_forck(t_philo *p)
 {
-	
-	return (is_forck);
+	sem_wait(table()->forks);
+	sem_wait(table()->forks);
+	return (p != NULL);
 }
 
 static int	ft_free_forck(t_philo	*p)
 {
 
-	return (1);
+	sem_post(table()->forks);
+	sem_post(table()->forks);
+	return (p != NULL);
 }
 
 static void	ft_sit(int chair)
@@ -67,6 +54,6 @@ static void	ft_sit(int chair)
 void	init_bonus(void)
 {
 	table()->sit = ft_sit;
-	table()->check = check_bonus
-	sem_open();
+	table()->check = check_bonus;
+
 }

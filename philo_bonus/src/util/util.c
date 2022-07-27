@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
-#include <stdlib.h>
+#include <philo_bonus.h>
 
 int	free_ob(void *v)
 {
@@ -76,7 +75,7 @@ int	ft_is_number(const char *str)
 	{
 		if (!(*str >= '0' && *str <= '9'))
 			return (0);
-			str++;
+		str++;
 	}
 	return (1);
 }

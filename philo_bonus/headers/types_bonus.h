@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#ifndef TYPES_BONUS_H
+# define TYPES_BONUS_H
 
 # include <pthread.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <semaphore.h>
 
 # define MILLISECONDS	1000
 # define KNRM  "\x1B[0m"
@@ -30,7 +31,6 @@
 typedef struct s_philo		t_philo;
 typedef char				t_int;
 typedef struct s_table		t_table;
-typedef struct s_forck		t_forck;
 typedef unsigned long		t_useconds;
 
 typedef enum e_status
@@ -42,12 +42,6 @@ typedef enum e_status
 	DIED,
 	NONE
 }	t_status;
-
-struct s_forck
-{
-	t_int				is_free;
-	pthread_mutex_t		fork;
-};
 
 typedef struct s_run
 {
@@ -64,7 +58,6 @@ struct s_philo
 	int					chair;
 	int					is_alive;
 	t_status			status;
-	t_forck				fork;
 	t_philo				*left;
 	t_useconds			time;
 	t_useconds			time_life;
@@ -83,7 +76,8 @@ struct s_table
 	char			*color[6];
 	t_useconds		times[6];
 	t_philo			**philos;
-	t_run			run_check;
+	sem_t			*forks;
+	sem_t			*run_check;
 	void			(*sit)(int chair);
 	void			*(*update)(void	*table);
 	void			(*destroy)();

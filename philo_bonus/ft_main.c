@@ -10,18 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include <philo_bonus.h>
 
 void	exit_program(void)
 {
-	int	i;
-
-	i = -1;
-	while (++i < table()->size)
+	/*while (++i < table()->size)
 	{
 		pthread_mutex_destroy(&table()->philos[i]->fork.fork);
 		free_ob(table()->philos[i]);
-	}
+	}*/
 	free_ob(table()->philos);
 	printf("\033[0mn");
 	exit(0);
@@ -47,22 +44,25 @@ int	main(int argc, char **argv)
 	int				size;
 	int				i;
 
+
+	
+
 	i = -1;
 	if (!check_args(argc, (const char **) argv))
 		return (0);
-	init_mandatory();
+	init_bonus();
 	size = ft_atoi(argv[1]);
 	init_table(size, ft_atoi(argv[2]), ft_atoi(argv[3]), ft_atoi(argv[4]));
-	if (argc > 5)
+	/*if (argc > 5)
 		table()->run_check.max_eats = ft_atoi(argv[5]);
 	else
 		table()->run_check.max_eats = -1;
-	printf("init_table: size: %i\n", table()->run_check.max_eats);
+	printf("init_table: size: %i\n", table()->run_check.max_eats);*/
 	while (++i < size)
 		table()->sit(i);
 	i = -1;
 	while (++i < size)
-		waitpid((table()->philos[i])->thid, 0);
+		waitpid((table()->philos[i])->thid, 0, 0);
 	exit_program();
 	return (1);
 }

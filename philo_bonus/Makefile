@@ -15,11 +15,12 @@ SRCS		= 		ft_main.c $(shell find src/ -name '*.c')
 OBJS		= 		$(SRCS:.c=.o)
 CC			= 		gcc
 # -pthread -fsanitize=thread
-CFLAGS		= 		-Wall -Wextra -Werror -pthread -fsanitize=thread
+CFLAGS		= 		-Wall -Wextra -Werror -lpthread -fsanitize=thread
 LIB			= 		ar rcs
 RM			= 		/bin/rm -f
 NAME		= 		philo
 INCLUDES	= 	-Iheaders/
+LIBS 		+= 	-lpthread -lrt
 
 all: $(NAME) 
 
@@ -27,7 +28,7 @@ $(NAME): $(OBJS)
 		@$(CC) $(^) -o $(@)
 		
 %.o: %.c
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $(^) -o $(@)
 
 clean		:
 					$(RM) $(OBJS)

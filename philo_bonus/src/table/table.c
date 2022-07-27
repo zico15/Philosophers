@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include <philo_bonus.h>
 
 t_table	*table(void)
 {
@@ -64,15 +64,13 @@ void	init_table(int philos, int die, int eat, int sleep)
 	table()->destroy = destroy;
 	table()->init_time = get_time();
 	table()->update = ft_update_table;
-	table()->run_check.is_run = 1;
-	table()->run_check.max_eats = 3;
-	pthread_mutex_init(&table()->run_check.check, 0);
 	init_table_data(die, eat, sleep);
+	sem_unlink("run_check");
+	table()->run_check = sem_open("run_check", O_CREAT, 0660, 1);
+	sem_unlink("forks");
+	table()->forks = sem_open("forks", O_CREAT, 0660, philos + 1);
 	philos = -1;
 	while (++philos < table()->size)
-	{
-		table()->run_check.list[philos] = 0;
 		table()->philos[philos] = new_philo(philos);
-	}
-	create_link(table()->size);
+
 }

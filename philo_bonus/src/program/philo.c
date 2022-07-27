@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include <philo_bonus.h>
 
 void	action(t_philo	*p, t_status status)
 {
@@ -61,11 +61,9 @@ t_philo	*new_philo(int chair)
 
 	p = malloc_ob(sizeof(t_philo));
 	p->update = ft_update;
-	p->fork.is_free = 1;
 	p->chair = chair + 1;
 	p->eats = 0;
 	p->status = NONE;
 	p->is_alive = 1;
-	pthread_mutex_init(&p->fork.fork, NULL);
 	return (p);
 }

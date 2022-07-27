@@ -1,6 +1,6 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/ezequeil/Documents/GitHub/Philosophers'
-make: Leaving directory '/home/ezequeil/Documents/GitHub/Philosophers'
+make --dry-run --keep-going --print-directory
+make: Entering directory '/sgoinfre/edos-san/Philosophers'
+make: Leaving directory '/sgoinfre/edos-san/Philosophers'
  
 make: *** No targets specified and no makefile found.  Stop.
 
