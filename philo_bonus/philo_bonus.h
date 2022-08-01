@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include <types_bonus.h>
+# include "types_bonus.h"
 # include <sys/time.h>
 # include <unistd.h>
 # include <sys/types.h>
@@ -44,9 +44,6 @@ void					action(t_philo	*p, t_status status);
 
 //						MAIN
 void					exit_program(void);
-
-//						PROGRAM
-int						check_live(t_philo *p, unsigned long long now);
 
 //						BONUS
 void	                init_bonus(void);

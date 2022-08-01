@@ -10,18 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo_bonus.h>
+#include "philo_bonus.h"
 
 
 static t_int check_bonus(t_philo *p)
 {
+	int	i;
+
+	i = 1;
 	sem_wait(table()->run_check);
-	if (p->is_alive)
+	if (!pthread_mutex_lock(&p->is_alive.mutex))
 	{
-		sem_post(table()->run_check);
-		return (1);
+		i = p->is_alive.value;
+		pthread_mutex_unlock(&p->is_alive.mutex);
+		if (i)
+			sem_post(table()->run_check);
+		else
+		{
+			action(p, DIED);
+			sem_post(table()->run_init);
+		}
 	}
-	return (0);
+	return (i);
 }
 
 static int	ft_get_forck(t_philo *p)
@@ -42,13 +52,19 @@ static int	ft_free_forck(t_philo	*p)
 static void	ft_sit(int chair)
 {
 	t_philo		*p;
+	pid_t		pid;
 
 	p = table()->philos[chair];
 	p->get_forck = ft_get_forck;
 	p->free_forck = ft_free_forck;
-	p->thid = (pthread_t) fork();
-	if (p->thid)
+	pid = (pthread_t) fork();
+	if (pid)
 		p->update(p);
+	else
+	{
+		table()->id[chair] = pid;
+		table()->id[chair + 1] = -1;
+	}
 }
 
 void	init_bonus(void)

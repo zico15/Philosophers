@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo_bonus.h>
+#include "philo_bonus.h"
 
 t_table	*table(void)
 {
@@ -65,10 +65,12 @@ void	init_table(int philos, int die, int eat, int sleep)
 	table()->init_time = get_time();
 	table()->update = ft_update_table;
 	init_table_data(die, eat, sleep);
+	sem_unlink("run_init");
+	table()->run_init = sem_open("run_init", O_CREAT, 0660, 1);
 	sem_unlink("run_check");
 	table()->run_check = sem_open("run_check", O_CREAT, 0660, 1);
 	sem_unlink("forks");
-	table()->forks = sem_open("forks", O_CREAT, 0660, philos + 1);
+	table()->forks = sem_open("forks", O_CREAT, 0660, philos);
 	philos = -1;
 	while (++philos < table()->size)
 		table()->philos[philos] = new_philo(philos);

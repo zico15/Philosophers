@@ -52,15 +52,21 @@ typedef struct s_run
 	int					count;
 }	t_run;
 
+typedef struct s_live
+{
+	id_t				value;
+	t_useconds			time_life;
+	pthread_mutex_t		mutex;
+} t_live;
+
 struct s_philo
 {
 	pthread_t			thid;
 	int					chair;
-	int					is_alive;
+	t_live				is_alive;
 	t_status			status;
 	t_philo				*left;
 	t_useconds			time;
-	t_useconds			time_life;
 	int					eats;
 	void				*(*update)(void	*p);
 	int					(*free_forck)(t_philo *p);
@@ -78,6 +84,8 @@ struct s_table
 	t_philo			**philos;
 	sem_t			*forks;
 	sem_t			*run_check;
+	sem_t			*run_init;
+	int				id[9999];
 	void			(*sit)(int chair);
 	void			*(*update)(void	*table);
 	void			(*destroy)();

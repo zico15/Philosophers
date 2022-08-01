@@ -10,17 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= 		ft_main.c $(shell find src/ -name '*.c')
+SRCS		= 		ft_main.c \
+					base.c \
+					ft_bonus.c \
+					philo.c \
+					table.c \
+					util.c
 
 OBJS		= 		$(SRCS:.c=.o)
-CC			= 		gcc
-# -pthread -fsanitize=thread
-CFLAGS		= 		-Wall -Wextra -Werror -lpthread -fsanitize=thread
+CC			= 		gcc -Wall -Wextra -Werror -pthread
 LIB			= 		ar rcs
 RM			= 		/bin/rm -f
-NAME		= 		philo
-INCLUDES	= 	-Iheaders/
-LIBS 		+= 	-lpthread -lrt
+NAME		= 		philo_bonus
 
 all: $(NAME) 
 
@@ -28,7 +29,7 @@ $(NAME): $(OBJS)
 		@$(CC) $(^) -o $(@)
 		
 %.o: %.c
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $(^) -o $(@)
+	@$(CC) -c $(^) -o $(@)
 
 clean		:
 					$(RM) $(OBJS)
@@ -43,4 +44,4 @@ re			:		fclean all
 m			: 		clean fclean
 
 r			: 		
-					make re && clear && ./philo
+					make re && clear && ./$(NAME) 

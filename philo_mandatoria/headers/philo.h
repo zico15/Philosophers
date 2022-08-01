@@ -20,6 +20,7 @@
 # include <sys/time.h>
 # include <unistd.h>
 
+
 //						UTIL
 int						free_ob(void *v);
 void					*malloc_ob(size_t size);
@@ -40,6 +41,7 @@ void					 action(t_philo	*p, t_status status);
 
 //						MAIN
 void					exit_program(void);
+int	                    printf(const char *txt, ...);
 
 //						PROGRAM
 int						check_live(t_philo *p, unsigned long long now);

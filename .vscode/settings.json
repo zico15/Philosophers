@@ -6,6 +6,7 @@
 		"philo.h": "c",
 		"struct_timespec.h": "c",
 		"philo_bonus.h": "c",
-		"semaphore.h": "c"
+		"semaphore.h": "c",
+		"unistd.h": "c"
 	}
 }

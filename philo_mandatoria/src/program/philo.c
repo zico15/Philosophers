@@ -16,7 +16,7 @@ void	action(t_philo	*p, t_status status)
 {
 	if (p->status == status && !table()->check(p))
 		return ;
-	printf("%stime: %lu philo: %i action: %s\n", table()->color \
+	printf("%s time: %lu philo: %i action: %s\n", table()->color \
 	[status], (get_time() - table()->init_time), \
 	p->chair, table()->msg[status]);
 	if (status != DIED)
