@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   base.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 16:26:54 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/20 20:59:39 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/08/07 15:07:02 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "philo.h"
 
 t_useconds	get_time(void)
 {
@@ -40,4 +40,12 @@ void	ft_usleep(t_useconds time, t_philo	*p)
 t_useconds	get_time_now(t_useconds start)
 {
 	return (get_time() - start);
+}
+
+int	print_log(t_philo	*p)
+{
+	printf("%stime: %lu philo: %i action: %s\n", table()->color \
+	[p->status], (get_time() - p->init_time), \
+	p->chair, table()->msg[p->status]);
+	return (1);
 }

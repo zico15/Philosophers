@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:06:16 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/20 21:06:18 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/08/06 22:15:20 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define TYPES_H
 
 # include <pthread.h>
-# include <stdlib.h>
 # include <stdio.h>
 
 # define MILLISECONDS	1000
@@ -43,16 +42,12 @@ typedef enum e_status
 	NONE
 }	t_status;
 
-struct s_forck
-{
-	id_t				is_free;
-	pthread_mutex_t		fork;
-};
-
 typedef struct s_run
 {
-	id_t				is_run;
+	t_int				is_run;
 	pthread_mutex_t		check;
+	pthread_mutex_t		action_get;
+	pthread_mutex_t		action_free;
 	int					list[999999];
 	int					max_eats;
 	int					count;
@@ -62,12 +57,14 @@ struct s_philo
 {
 	pthread_t			thid;
 	int					chair;
-	int					is_alive;
+	t_int				is_alive;
 	t_status			status;
-	t_forck				fork;
+	t_int				fork;
+	pthread_mutex_t		forck_check;
 	t_philo				*left;
 	t_useconds			time;
 	t_useconds			time_life;
+	t_useconds			init_time;
 	int					eats;
 	void				*(*update)(void	*p);
 	int					(*free_forck)(t_philo *p);
@@ -82,12 +79,14 @@ struct s_table
 	char			*msg[6];
 	char			*color[6];
 	t_useconds		times[6];
-	t_philo			**philos;
-	t_run			run_check;
+	t_philo			philos[9999];
+	int				is_run;
+	pthread_mutex_t	action;
+	pthread_mutex_t	init;
+	int				max_eats;
 	void			(*sit)(int chair);
-	void			*(*update)(void	*table);
 	void			(*destroy)();
-	id_t			(*check)(t_philo	*p);
+	t_int			(*check)(t_philo	*p);
 };
 
 #endif

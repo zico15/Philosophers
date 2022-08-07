@@ -7,6 +7,13 @@
 		"struct_timespec.h": "c",
 		"philo_bonus.h": "c",
 		"semaphore.h": "c",
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"time.h": "c",
+		"wait.h": "c",
+		"pthread.h": "c",
+		"types.h": "c",
+		"types_bonus.h": "c",
+		"fcntl.h": "c",
+		"stat.h": "c"
 	}
 }

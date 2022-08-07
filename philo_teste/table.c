@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   table.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:35:32 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/06 14:23:19 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/08/06 22:20:17 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "philo.h"
 
 t_table	*table(void)
 {
@@ -21,18 +21,8 @@ t_table	*table(void)
 
 static void	destroy(void)
 {
-	while (table()->size)
-		free_ob(table()->philos[--table()->size]);
-	free_ob(table()->philos);
-}
-
-static void	*ft_update_table(void	*t)
-{
-	/*(void) t;
-	while (table()->islive)
-		;*/
-	exit_program();
-	return (t);
+	printf("ERROR NUMBER MAX PHILOS!\n");
+	exit(0);
 }
 
 static void	init_table_data(int die, int eat, int sleep)
@@ -59,20 +49,35 @@ static void	init_table_data(int die, int eat, int sleep)
 
 void	init_table(int philos, int die, int eat, int sleep)
 {
+	if (philos >= 9999)
+		destroy();
 	table()->size = philos;
-	table()->philos = malloc_ob(sizeof(t_philo *) * philos);
 	table()->destroy = destroy;
 	table()->init_time = get_time();
-	table()->update = ft_update_table;
-	table()->run_check.is_run = 1;
-	table()->run_check.max_eats = 3;
-	pthread_mutex_init(&table()->run_check.check, 0);
+	table()->is_run = 0;
+	pthread_mutex_init(&table()->action, NULL);
+	pthread_mutex_init(&table()->init, NULL);
 	init_table_data(die, eat, sleep);
 	philos = -1;
 	while (++philos < table()->size)
 	{
-		table()->run_check.list[philos] = 0;
 		table()->philos[philos] = new_philo(philos);
+		table()->philos[philos + 1].fork = 0;
 	}
 	create_link(table()->size);
+}
+
+int	check_run_table(t_philo	*p)
+{
+	int	i;
+
+	pthread_mutex_lock(&table()->init);
+	if (p->chair == table()->size)
+	{
+		table()->init_time = get_time();
+		table()->is_run = 1;
+	}
+	i = table()->is_run;
+	pthread_mutex_unlock(&table()->init);
+	return (!i);
 }

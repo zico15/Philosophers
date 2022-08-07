@@ -6,11 +6,11 @@
 /*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:35:32 by edos-san          #+#    #+#             */
-/*   Updated: 2022/08/07 15:31:58 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/08/07 15:28:35 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_bonus.h"
+#include "philo.h"
 
 t_table	*table(void)
 {
@@ -50,14 +50,18 @@ void	init_table(int philos, int die, int eat, int sleep)
 	table()->size = philos;
 	table()->destroy = destroy;
 	table()->init_time = get_time();
+	table()->run_check.is_run = 1;
+	table()->run_check.max_eats = 3;
+	pthread_mutex_init(&table()->action, 0);
+	pthread_mutex_init(&table()->run_check.check, 0);
+	pthread_mutex_init(&table()->run_check.action_get, 0);
+	pthread_mutex_init(&table()->run_check.action_free, 0);
 	init_table_data(die, eat, sleep);
-	sem_unlink("run_init");
-	(table()->run_init) = sem_open("run_init", O_CREAT, 0660, philos);
-	sem_unlink("run_check");
-	(table()->run_check) = sem_open("run_check", O_CREAT, 0660, 1);
-	sem_unlink("forks");
-	(table()->forks) = sem_open("forks", O_CREAT, 0660, philos);
 	philos = -1;
 	while (++philos < table()->size)
+	{
+		table()->run_check.list[philos] = 0;
 		table()->philos[philos] = new_philo(philos);
+	}
+	create_link(table()->size);
 }

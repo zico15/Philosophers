@@ -6,11 +6,11 @@
 /*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:50:11 by edos-san          #+#    #+#             */
-/*   Updated: 2022/08/07 15:34:39 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/08/06 22:11:16 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_bonus.h"
+#include "philo.h"
 
 void	exit_program(void)
 {
@@ -19,10 +19,8 @@ void	exit_program(void)
 	i = -1;
 	while (++i < table()->size)
 	{
-		pthread_mutex_destroy(&table()->philos[i].is_alive.mutex);
-		kill(table()->id[i], SIGINT);
 	}
-	printf("\033[0m");
+	printf("\033[0mn");
 	exit(0);
 }
 
@@ -48,18 +46,19 @@ int	main(int argc, char **argv)
 	i = -1;
 	if (!check_args(argc, (const char **) argv))
 		return (0);
-	init_bonus();
+	init_mandatory();
 	size = ft_atoi(argv[1]);
 	init_table(size, ft_atoi(argv[2]), ft_atoi(argv[3]), ft_atoi(argv[4]));
 	if (argc > 5)
 		table()->max_eats = ft_atoi(argv[5]);
 	else
 		table()->max_eats = -1;
+	printf("init_table: size: %i\n", table()->size);
 	while (++i < size)
 		table()->sit(i);
 	i = -1;
 	while (++i < size)
-		sem_wait(table()->run_init);
+		pthread_join((table()->philos[i]).thid, 0);
 	exit_program();
 	return (1);
 }

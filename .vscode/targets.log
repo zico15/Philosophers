@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 27 21:56:37 2022
+# Make data base, printed on Sun Aug  7 16:41:11 2022
 
 # Variables
 
@@ -17,15 +17,13 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
-NO_AT_BRIDGE = 1
-# environment
-PULSE_SERVER = unix:/run/flatpak/pulse/native
-# environment
 GJS_DEBUG_OUTPUT = stderr
+# environment
+GNOME_KEYRING_CONTROL = /nfs/homes/edos-san/.cache/keyring-36FZP1
 # environment
 SBX_CHROME_API_RQ = 1
 # environment
-VSCODE_CWD = /Users/edos-san
+VSCODE_CWD = /nfs/homes/edos-san
 # environment
 LIBVIRT_DEFAULT_URI = qemu:///system
 # environment
@@ -55,9 +53,9 @@ XDG_DATA_DIRS = /app/share:/usr/share:/usr/share/runtime/share:/run/host/user-sh
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/edos-san/.var/app/com.visualstudio.code/config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CODE_CACHE_PATH = /nfs/homes/edos-san/.var/app/com.visualstudio.code/config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session10
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session28
 # environment
 LANG = C
 # environment
@@ -97,13 +95,13 @@ XDG_SESSION_DESKTOP = ubuntu
 # makefile
 MAKEFILE_LIST := 
 # environment
-FLATPAK_SANDBOX_DIR = /Users/edos-san/.var/app/com.visualstudio.code/sandbox
+FLATPAK_SANDBOX_DIR = /nfs/homes/edos-san/.var/app/com.visualstudio.code/sandbox
 # automatic
 @F = $(notdir $@)
 # environment
 VSCODE_PID = 23
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_10323_zoIxUf
+KRB5CCNAME = FILE:/tmp/krb5cc_10323_pZLJNk
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -111,11 +109,11 @@ XDG_SESSION_TYPE = x11
 # environment
 AT_SPI_BUS_ADDRESS = unix:path=/run/flatpak/at-spi-bus
 # environment
-XDG_DATA_HOME = /Users/edos-san/.var/app/com.visualstudio.code/data
+XDG_DATA_HOME = /nfs/homes/edos-san/.var/app/com.visualstudio.code/data
 # environment
 SANDBOX_LD_PRELOAD = /app/bin/../lib/libzypak-preload-host.so:/app/bin/../lib/libzypak-preload-host-spawn-strategy.so
 # environment
-SESSION_MANAGER = local/c2r6s1.42lisboa.com:@/tmp/.ICE-unix/155703,unix/c2r6s1.42lisboa.com:/tmp/.ICE-unix/155703
+SESSION_MANAGER = local/c2r6s1.42lisboa.com:@/tmp/.ICE-unix/625382,unix/c2r6s1.42lisboa.com:/tmp/.ICE-unix/625382
 # automatic
 *F = $(notdir $*)
 # environment
@@ -151,7 +149,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /app/bin:/app/bin:/app/bin:/usr/bin:/Users/edos-san/.var/app/com.visualstudio.code/data/node_modules/bin
+PATH = /app/bin:/app/bin:/app/bin:/usr/bin:/nfs/homes/edos-san/.var/app/com.visualstudio.code/data/node_modules/bin
 # default
 MAKEFILES := 
 # environment
@@ -161,9 +159,7 @@ LANGUAGE = en
 # environment
 DBUS_SYSTEM_BUS_ADDRESS = unix:path=/run/dbus/system_bus_socket
 # environment
-XDG_CONFIG_HOME = /Users/edos-san/.var/app/com.visualstudio.code/config
-# environment
-INVOCATION_ID = e624fa468e434e43a4e176c9e250be40
+XDG_CONFIG_HOME = /nfs/homes/edos-san/.var/app/com.visualstudio.code/config
 # environment
 DOCKER_HOST = unix:///run/user/10323/docker.sock
 # automatic
@@ -201,11 +197,9 @@ DISPLAY = :99.0
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 155190
+GIO_LAUNCHED_DESKTOP_FILE_PID = 643615
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 157648
-# environment
-SSH_AGENT_PID = 155665
+SSH_AGENT_PID = 625487
 # environment
 _ = /usr/bin/make
 # environment
@@ -213,23 +207,15 @@ XDG_RUNTIME_DIR = /run/user/10323
 # environment
 GPG_AGENT_INFO = /run/user/10323/gnupg/S.gpg-agent:0:1
 # environment
-PULSE_CLIENTCONFIG = /run/flatpak/pulse/config
-# environment
-JOURNAL_STREAM = 9:1112416
-# environment
-XDG_SESSION_CLASS = user
-# environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /Users/edos-san
+HOME = /nfs/homes/edos-san
 # environment
 QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/10323/vscode-ce68ec1d-1.69.2-main.sock
-# environment
-IM_CONFIG_PHASE = 1
+VSCODE_IPC_HOOK = /run/user/10323/vscode-2a9b0f95-1.69.2-main.sock
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -237,7 +223,7 @@ IM_CONFIG_PHASE = 1
 # default
 SUFFIXES := 
 # environment
-XDG_CACHE_HOME = /Users/edos-san/.var/app/com.visualstudio.code/cache
+XDG_CACHE_HOME = /nfs/homes/edos-san/.var/app/com.visualstudio.code/cache
 # environment
 VSCODE_CLI = 1
 # environment
@@ -255,7 +241,7 @@ ZYPAK_BIN = /app/bin
 # environment
 GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=121/1024=12%, Rehash=0, Collisions=14/146=10%
+# Load=114/1024=11%, Rehash=0, Collisions=14/139=10%
 
 # Pattern-specific Variable Values
 
@@ -263,9 +249,9 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 58, inode 30120016): 6 files, no impossibilities.
+# . (device 58, inode 30120016): 7 files, no impossibilities.
 
-# 6 files, no impossibilities in 1 directories.
+# 7 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -281,7 +267,6 @@ Makefile:
 #  Failed to be updated.
 
 # Not a target:
- 
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -296,6 +281,7 @@ all:
 
 # Not a target:
 makefile:
+ 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -316,12 +302,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 113 B / avg = 8 B
-# current buf: size = 8162 B / used = 113 B / count = 13 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 14 / storage = 125 B / avg = 8 B
+# current buf: size = 8162 B / used = 125 B / count = 14 / avg = 8 B
 
-# strcache performance: lookups = 16 / hit rate = 18%
+# strcache performance: lookups = 17 / hit rate = 17%
 # hash-table stats:
-# Load=13/8192=0%, Rehash=0, Collisions=0/16=0%
-# Finished Make data base on Wed Jul 27 21:56:37 2022
+# Load=14/8192=0%, Rehash=0, Collisions=0/17=0%
+# Finished Make data base on Sun Aug  7 16:41:11 2022
 
  

@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types_bonus.h                                      :+:      :+:    :+:   */
+/*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:06:16 by edos-san          #+#    #+#             */
-/*   Updated: 2022/08/07 16:29:43 by edos-san         ###   ########.fr       */
+/*   Updated: 2022/08/07 15:06:54 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_BONUS_H
-# define TYPES_BONUS_H
+#ifndef TYPES_H
+# define TYPES_H
 
 # include <pthread.h>
-# include <stdlib.h>
 # include <stdio.h>
-# include <semaphore.h>
 
 # define MILLISECONDS	1000
 # define KNRM  "\x1B[0m"
@@ -31,6 +29,7 @@
 typedef struct s_philo		t_philo;
 typedef char				t_int;
 typedef struct s_table		t_table;
+typedef struct s_forck		t_forck;
 typedef unsigned long		t_useconds;
 
 typedef enum e_status
@@ -43,32 +42,34 @@ typedef enum e_status
 	NONE
 }	t_status;
 
+struct s_forck
+{
+	t_int				is_free;
+	pthread_mutex_t		fork;
+};
+
 typedef struct s_run
 {
 	t_int				is_run;
 	pthread_mutex_t		check;
+	pthread_mutex_t		action_get;
+	pthread_mutex_t		action_free;
 	int					list[999999];
 	int					max_eats;
 	int					count;
 }	t_run;
 
-typedef struct s_live
-{
-	int					value;
-	t_useconds			time_life;
-	pthread_mutex_t		mutex;
-}	t_live;
-
 struct s_philo
 {
 	pthread_t			thid;
-	int					chair;
-	t_live				is_alive;
+	t_int				chair;
+	t_int				is_alive;
 	t_status			status;
-	t_philo				*right;
+	t_forck				fork;
 	t_philo				*left;
 	t_useconds			time;
 	t_useconds			init_time;
+	t_useconds			time_life;
 	int					eats;
 	void				*(*update)(void	*p);
 	int					(*free_forck)(t_philo *p);
@@ -82,13 +83,10 @@ struct s_table
 	int				size;
 	char			*msg[6];
 	char			*color[6];
-	int				max_eats;
 	t_useconds		times[6];
 	t_philo			philos[9999];
-	sem_t			*forks;
-	sem_t			*run_check;
-	sem_t			*run_init;
-	int				id[9999];
+	t_run			run_check;
+	pthread_mutex_t	action;
 	void			(*sit)(int chair);
 	void			(*destroy)();
 	t_int			(*check)(t_philo	*p);

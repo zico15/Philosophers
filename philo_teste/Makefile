@@ -6,15 +6,16 @@
 #    By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 18:43:51 by edos-san          #+#    #+#              #
-#    Updated: 2022/08/06 17:25:19 by edos-san         ###   ########.fr        #
+#    Updated: 2022/08/06 22:23:12 by edos-san         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= 		ft_main.c \
 					base.c \
-					ft_bonus.c \
+					ft_mandatory.c \
 					philo.c \
 					table.c \
+					table_util.c \
 					util.c
 
 OBJS		= 		$(SRCS:.c=.o)
@@ -22,7 +23,7 @@ CC			= 		gcc -Wall -Wextra -Werror
 CCF			=       -pthread -fsanitize=thread
 LIB			= 		ar rcs
 RM			= 		/bin/rm -f
-NAME		= 		philo_bonus
+NAME		= 		philo
 
 all: $(NAME)
 
@@ -45,4 +46,4 @@ re			:		fclean all
 m			: 		clean fclean
 
 r			: 		
-					make re && clear && ./$(NAME) 
+					make re && clear && ./philo

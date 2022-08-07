@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:31:53 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/20 21:09:47 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/08/07 16:47:41 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@ void	action(t_philo	*p, t_status status)
 {
 	if (p->status == status && !table()->check(p))
 		return ;
-	printf("%s time: %lu philo: %i action: %s\n", table()->color \
-	[status], (get_time() - table()->init_time), \
+	printf("%stime: %lu philo: %i action: %s\n", table()->color \
+	[status], (get_time() - p->init_time), \
 	p->chair, table()->msg[status]);
+	if (status == FORK)
+		printf("%stime: %lu philo: %i action: %s\n", table()->color \
+		[status], (get_time() - table()->init_time), \
+		p->chair, table()->msg[status]);
 	if (status != DIED)
 		ft_usleep(table()->times[status], p);
 	p->status = status;
@@ -40,26 +44,25 @@ static void	action_controller(t_philo	*p)
 		action(p, FORK);
 		action(p, EATING);
 		p->eats++;
-		if (!pthread_mutex_lock(&p->is_alive.mutex))
-		{
-			p->is_alive.time_life = get_time() + table()->times[DIED];
-			pthread_mutex_unlock(&p->is_alive.mutex);
-		}
+		if (p->eats == table()->max_eats)
+			sem_post(table()->run_init);
+		p->is_alive.time_life = (get_time() + table()->times[DIED]);
 	}
 }
 
-static void *check_live(void *philo)
+static void	*check_live(void *philo)
 {
 	t_philo			*p;
 
 	p = philo;
+	p->is_alive.time_life = p->init_time + table()->times[DIED];
 	while (table()->check(p))
 	{
 		if (p->is_alive.value && get_time() > p->is_alive.time_life)
 		{
 			p->is_alive.value = 0;
 		}
-		usleep(10);
+		usleep(20);
 	}
 	return (p);
 }
@@ -69,11 +72,8 @@ void	*ft_update(void	*philo)
 	t_philo			*p;
 
 	p = philo;
-	if (!pthread_mutex_lock(&p->is_alive.mutex))
-	{
-		p->is_alive.time_life = get_time() + table()->times[DIED];
-		pthread_mutex_unlock(&p->is_alive.mutex);
-	}
+	sem_wait(table()->run_init);
+	p->init_time = get_time();
 	if (pthread_create(&p->thid, NULL, check_live, p) == 0)
 	{
 		while (table()->check(p))
@@ -82,16 +82,15 @@ void	*ft_update(void	*philo)
 	return (p);
 }
 
-t_philo	*new_philo(int chair)
+t_philo	new_philo(int chair)
 {
-	t_philo	*p;
+	t_philo	p;
 
-	p = malloc_ob(sizeof(t_philo));
-	p->update = ft_update;
-	p->chair = chair + 1;
-	p->eats = 0;
-	p->status = NONE;
-	p->is_alive.value = 1;
-	pthread_mutex_init(&p->is_alive.mutex, NULL);
+	p.update = ft_update;
+	p.chair = chair + 1;
+	p.eats = 0;
+	p.status = THINKING;
+	p.is_alive.value = 1;
+	pthread_mutex_init(&p.is_alive.mutex, 0);
 	return (p);
 }

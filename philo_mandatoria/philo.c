@@ -3,22 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ezequeil <ezequeil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edos-san <edos-san@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:31:53 by edos-san          #+#    #+#             */
-/*   Updated: 2022/07/20 21:09:47 by ezequeil         ###   ########.fr       */
+/*   Updated: 2022/08/07 16:47:35 by edos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "philo.h"
 
 void	action(t_philo	*p, t_status status)
 {
 	if (p->status == status && !table()->check(p))
 		return ;
-	printf("%s time: %lu philo: %i action: %s\n", table()->color \
+	printf("%stime: %lu philo: %i action: %s\n", table()->color \
 	[status], (get_time() - table()->init_time), \
 	p->chair, table()->msg[status]);
+	if (status == FORK)
+		printf("%stime: %lu philo: %i action: %s\n", table()->color \
+		[status], (get_time() - table()->init_time), \
+		p->chair, table()->msg[status]);
 	if (status != DIED)
 		ft_usleep(table()->times[status], p);
 	p->status = status;
@@ -55,17 +59,16 @@ void	*ft_update(void	*philo)
 	return (p);
 }
 
-t_philo	*new_philo(int chair)
+t_philo	new_philo(int chair)
 {
-	t_philo	*p;
+	t_philo	p;
 
-	p = malloc_ob(sizeof(t_philo));
-	p->update = ft_update;
-	p->fork.is_free = 1;
-	p->chair = chair + 1;
-	p->eats = 0;
-	p->status = NONE;
-	p->is_alive = 1;
-	pthread_mutex_init(&p->fork.fork, NULL);
+	p.update = ft_update;
+	p.fork.is_free = 1;
+	p.chair = chair + 1;
+	p.eats = 0;
+	p.status = THINKING;
+	p.is_alive = 1;
+	pthread_mutex_init(&p.fork.fork, NULL);
 	return (p);
 }
